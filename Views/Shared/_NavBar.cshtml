@@ -1,0 +1,41 @@
+﻿<div class="header-menu bg-blue">
+    <div class="container">
+        <nav class="nav-bar">
+            <div class="nav-header">
+                <span class="nav-toggle" data-toggle="#header-navbar">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+            <div id="header-navbar" class="nav-collapse">
+                <ul class="nav-menu">
+                    <li class="active">
+                        @Html.ActionLink("الرئسية","Index","Home")
+                    </li>
+                    <li>
+                        @Html.ActionLink("عروض", "Index","Offers")
+                        
+                    </li>
+                    <li>
+
+                        @Html.ActionLink("كوبونات", "Index","Coupons")
+                       
+                    </li>
+                    <li>
+                        @Html.ActionLink("متاجر", "Index","Stores")
+                    </li>
+                    <li>
+                        <a href="contact_us_01.html">اتصل بنا</a>
+                    </li>
+                    <li>
+                        <a href="#">المدونة</a>
+                    </li>
+                    <li>
+                        <a href="#">صفحات</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

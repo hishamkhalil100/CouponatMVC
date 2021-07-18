@@ -1,0 +1,802 @@
+﻿@using Couponat.Models
+@model PagedList.IPagedList<Couponat.Models.Coupon>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+<section class="section latest-deals-area ptb-30">
+    <header class="panel ptb-15 prl-20 pos-r mb-30">
+        <h3 class="section-title font-18">أحدث العروض</h3>
+        <a class="btn btn-o btn-xs pos-a left-10 pos-tb-center">عرض الكل</a>
+    </header>
+    <div class="row row-masnory row-tb-20">
+        <div class="col-sm-6 col-lg-4">
+            <div class="deal-single panel">
+                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_01.jpg">
+                    <div class="label-discount right-20 top-15">-50%</div>
+                    <ul class="deal-actions top-15 left-20">
+                        <li class="like-deal">
+                            <span>
+                                <i class="fa fa-heart"></i>
+                            </span>
+                        </li>
+                        <li class="share-btn">
+                            <div class="share-tooltip fade">
+                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                            <span><i class="fa fa-share-alt"></i></span>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="time-right bottom-15 left-20 font-md-14">
+                        <span>
+                            <i class="ico fa fa-clock-o ml-10"></i>
+                            <span class="t-uppercase" data-countdown="2019/09/01 01:30:00"></span>
+                        </span>
+                    </div>
+                    <div class="deal-store-logo">
+                        <img src="assets/images/brands/brand_01.jpg" alt="">
+                    </div>
+                </figure>
+                <div class="bg-white pt-20 pr-20 pl-15">
+                    <div class="pl-md-10">
+                        <div class="rating mb-10">
+                            <span class="rating-stars rate-allow" data-rating="5">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="rating-reviews">
+                                ( <span class="rating-count">241</span> rates )
+                            </span>
+                        </div>
+                        <h3 class="deal-title mb-10">
+                            <a href="#">حامل الجوال الذكي 360 متعدد الاستخدام للمكتب والسيارة</a>
+                        </h3>
+                        <ul class="deal-meta list-inline mb-10 color-mid">
+                            <li><i class="ico fa fa-map-marker ml-10"></i>الولايات المتحدة</li>
+                            <li><i class="ico fa fa-shopping-basket ml-10"></i>120 Bought</li>
+                        </ul>
+                        <p class="text-muted mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص...</p>
+                    </div>
+                    <div class="deal-price pos-r mb-15">
+                        <h3 class="price ptb-5 text-left"><span class="price-sale">$300.00</span>$150.00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="deal-single panel">
+                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_02.jpg">
+                    <div class="label-discount right-20 top-15">-30%</div>
+                    <ul class="deal-actions top-15 left-20">
+                        <li class="like-deal">
+                            <span>
+                                <i class="fa fa-heart"></i>
+                            </span>
+                        </li>
+                        <li class="share-btn">
+                            <div class="share-tooltip fade">
+                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                            <span><i class="fa fa-share-alt"></i></span>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="time-right bottom-15 left-20 font-md-14">
+                        <span>
+                            <i class="ico fa fa-clock-o ml-10"></i>
+                            <span class="t-uppercase" data-countdown="2020/10/10 12:25:10"></span>
+                        </span>
+                    </div>
+                    <div class="deal-store-logo">
+                        <img src="assets/images/brands/brand_02.jpg" alt="">
+                    </div>
+                </figure>
+                <div class="bg-white pt-20 pr-20 pl-15">
+                    <div class="pl-md-10">
+                        <div class="rating mb-10">
+                            <span class="rating-stars rate-allow" data-rating="3">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="rating-reviews">
+                                ( <span class="rating-count">132</span> rates )
+                            </span>
+                        </div>
+                        <h3 class="deal-title mb-10">
+                            <a href="#">مكبر الشاشة الجوال ثلاثي الأبعاد مع سماعة</a>
+                        </h3>
+                        <ul class="deal-meta list-inline mb-10 color-mid">
+                            <li><i class="ico fa fa-map-marker ml-10"></i>المملكة المتحدة</li>
+                            <li><i class="ico fa fa-shopping-basket ml-10"></i>42 Bought</li>
+                        </ul>
+                        <p class="text-muted mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص...</p>
+                    </div>
+                    <div class="deal-price pos-r mb-15">
+                        <h3 class="price ptb-5 text-left"><span class="price-sale">$150.00</span>$100.00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="deal-single panel">
+                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_03.jpg">
+                    <div class="label-discount right-20 top-15">-30%</div>
+                    <ul class="deal-actions top-15 left-20">
+                        <li class="like-deal">
+                            <span>
+                                <i class="fa fa-heart"></i>
+                            </span>
+                        </li>
+                        <li class="share-btn">
+                            <div class="share-tooltip fade">
+                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                            <span><i class="fa fa-share-alt"></i></span>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="time-right bottom-15 left-20 font-md-14">
+                        <span>
+                            <i class="ico fa fa-clock-o ml-10"></i>
+                            <span class="t-uppercase" data-countdown="2020/10/10 12:25:10"></span>
+                        </span>
+                    </div>
+                    <div class="deal-store-logo">
+                        <img src="assets/images/brands/brand_03.jpg" alt="">
+                    </div>
+                </figure>
+                <div class="bg-white pt-20 pr-20 pl-15">
+                    <div class="pl-md-10">
+                        <div class="rating mb-10">
+                            <span class="rating-stars rate-allow" data-rating="4">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="rating-reviews">
+                                ( <span class="rating-count">160</span> rates )
+                            </span>
+                        </div>
+                        <h3 class="deal-title mb-10">
+                            <a href="#">شاحن أنكر السريع للسيارة يشحن أربعة اضعاف أسرع</a>
+                        </h3>
+                        <ul class="deal-meta list-inline mb-10 color-mid">
+                            <li><i class="ico fa fa-map-marker ml-10"></i>أستراليا</li>
+                            <li><i class="ico fa fa-shopping-basket ml-10"></i>75 Bought</li>
+                        </ul>
+                        <p class="text-muted mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص...</p>
+                    </div>
+                    <div class="deal-price pos-r mb-15">
+                        <h3 class="price ptb-5 text-left"><span class="price-sale">$300.00</span>$150.00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="deal-single panel">
+                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_04.jpg">
+                    <div class="label-discount right-20 top-15">-15%</div>
+                    <ul class="deal-actions top-15 left-20">
+                        <li class="like-deal">
+                            <span>
+                                <i class="fa fa-heart"></i>
+                            </span>
+                        </li>
+                        <li class="share-btn">
+                            <div class="share-tooltip fade">
+                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                            <span><i class="fa fa-share-alt"></i></span>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="time-right bottom-15 left-20 font-md-14">
+                        <span>
+                            <i class="ico fa fa-clock-o ml-10"></i>
+                            <span class="t-uppercase" data-countdown="2018/01/02 10:35:23"></span>
+                        </span>
+                    </div>
+                    <div class="deal-store-logo">
+                        <img src="assets/images/brands/brand_04.jpg" alt="">
+                    </div>
+                </figure>
+                <div class="bg-white pt-20 pr-20 pl-15">
+                    <div class="pl-md-10">
+                        <div class="rating mb-10">
+                            <span class="rating-stars rate-allow" data-rating="2">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="rating-reviews">
+                                ( <span class="rating-count">100</span> rates )
+                            </span>
+                        </div>
+                        <h3 class="deal-title mb-10">
+                            <a href="#">مكبر الشاشة الجوال ثلاثي الأبعاد مع سماعة</a>
+                        </h3>
+                        <ul class="deal-meta list-inline mb-10 color-mid">
+                            <li><i class="ico fa fa-map-marker ml-10"></i>كندا</li>
+                            <li><i class="ico fa fa-shopping-basket ml-10"></i>10 Bought</li>
+                        </ul>
+                        <p class="text-muted mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص...</p>
+                    </div>
+                    <div class="deal-price pos-r mb-15">
+                        <h3 class="price ptb-5 text-left"><span class="price-sale">$380.00</span>$340.00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="deal-single panel">
+                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_05.jpg">
+                    <div class="label-discount right-20 top-15">-60%</div>
+                    <ul class="deal-actions top-15 left-20">
+                        <li class="like-deal">
+                            <span>
+                                <i class="fa fa-heart"></i>
+                            </span>
+                        </li>
+                        <li class="share-btn">
+                            <div class="share-tooltip fade">
+                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                            <span><i class="fa fa-share-alt"></i></span>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="time-right bottom-15 left-20 font-md-14">
+                        <span>
+                            <i class="ico fa fa-clock-o ml-10"></i>
+                            <span class="t-uppercase" data-countdown="2021/12/03 03:15:00"></span>
+                        </span>
+                    </div>
+                    <div class="deal-store-logo">
+                        <img src="assets/images/brands/brand_05.jpg" alt="">
+                    </div>
+                </figure>
+                <div class="bg-white pt-20 pr-20 pl-15">
+                    <div class="pl-md-10">
+                        <div class="rating mb-10">
+                            <span class="rating-stars rate-allow" data-rating="3">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="rating-reviews">
+                                ( <span class="rating-count">32</span> rates )
+                            </span>
+                        </div>
+                        <h3 class="deal-title mb-10">
+                            <a href="#">حامل الجوال الذكي 360 متعدد الاستخدام للمكتب والسيارة</a>
+                        </h3>
+                        <ul class="deal-meta list-inline mb-10 color-mid">
+                            <li><i class="ico fa fa-map-marker ml-10"></i>الولايات المتحدة</li>
+                            <li><i class="ico fa fa-shopping-basket ml-10"></i>65 Bought</li>
+                        </ul>
+                        <p class="text-muted mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص...</p>
+                    </div>
+                    <div class="deal-price pos-r mb-15">
+                        <h3 class="price ptb-5 text-left"><span class="price-sale">$700.00</span>$576.00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="deal-single panel">
+                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/deals/deal_06.jpg">
+                    <div class="label-discount right-20 top-15">-60%</div>
+                    <ul class="deal-actions top-15 left-20">
+                        <li class="like-deal">
+                            <span>
+                                <i class="fa fa-heart"></i>
+                            </span>
+                        </li>
+                        <li class="share-btn">
+                            <div class="share-tooltip fade">
+                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                            <span><i class="fa fa-share-alt"></i></span>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="fa fa-camera"></i>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="time-right bottom-15 left-20 font-md-14">
+                        <span>
+                            <i class="ico fa fa-clock-o ml-10"></i>
+                            <span class="t-uppercase" data-countdown="2019/10/10 12:00:00"></span>
+                        </span>
+                    </div>
+                    <div class="deal-store-logo">
+                        <img src="assets/images/brands/brand_06.jpg" alt="">
+                    </div>
+                </figure>
+                <div class="bg-white pt-20 pr-20 pl-15">
+                    <div class="pl-md-10">
+                        <div class="rating mb-10">
+                            <span class="rating-stars rate-allow" data-rating="5">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="rating-reviews">
+                                ( <span class="rating-count">29</span> rates )
+                            </span>
+                        </div>
+                        <h3 class="deal-title mb-10">
+                            <a href="#">شاحن أنكر السريع للسيارة يشحن أربعة اضعاف أسرع</a>
+                        </h3>
+                        <ul class="deal-meta list-inline mb-10 color-mid">
+                            <li><i class="ico fa fa-map-marker ml-10"></i>المملكة المتحدة</li>
+                            <li><i class="ico fa fa-shopping-basket ml-10"></i>134 Bought</li>
+                        </ul>
+                        <p class="text-muted mb-20">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص...</p>
+                    </div>
+                    <div class="deal-price pos-r mb-15">
+                        <h3 class="price ptb-5 text-left"><span class="price-sale">$300.00</span>$250.00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section latest-coupons-area ptb-30">
+    <header class="panel ptb-15 prl-20 pos-r mb-30">
+        <h3 class="section-title font-18">أحدث الكوبونات</h3>
+        <a class="btn btn-o btn-xs pos-a left-10 pos-tb-center">عرض الكل</a>
+    </header>
+    <div class="latest-coupons-slider  owl-carousel owl-theme" data-autoplay-hover-pause="true" data-loop="true" data-autoplay="true" data-smart-speed="1000" data-autoplay-timeout="10000" data-margin="30" data-nav-speed="false" data-items="1" data-xxs-items="1" data-xs-items="2" data-sm-items="2" data-md-items="2" data-lg-items="3">
+        <div class="item">
+            <div class="coupon-single panel t-center">
+                <div class="ribbon-wrapper is-hidden-xs-down">
+                    <div class="ribbon">مميز</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center p-20">
+                            <img class="store-logo" src="assets/images/coupons/coupon_01.jpg" alt="">
+                        </div>
+                        <!-- end media -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-xs-12">
+                        <div class="panel-body">
+                            <ul class="deal-meta list-inline mb-10">
+                                <li class="color-green"><i class="ico lnr lnr-smile ml-5"></i>موثوق</li>
+                                <li class="color-muted"><i class="ico lnr lnr-users ml-5"></i>125 مباع</li>
+                            </ul>
+                            <h4 class="color-green mb-10 t-uppercase">10% خصم</h4>
+                            <h5 class="deal-title mb-10">
+                                <a href="#">قلم ستايلش, للشاشات التى تعمل باللمس</a>
+                            </h5>
+                            <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock ml-10"></i>ينتهي في 01/01/2018</p>
+                            <div class="showcode" data-toggle-class="coupon-showen" data-toggle-event="click">
+                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_01">عرض الكوبون</button>
+                                <div class="coupon-hide">X455-17GT-OL58</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+        <div class="item">
+            <div class="coupon-single panel t-center">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center p-20">
+                            <img class="store-logo" src="assets/images/coupons/coupon_02.jpg" alt="">
+                        </div>
+                        <!-- end media -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-xs-12">
+                        <div class="panel-body">
+                            <ul class="deal-meta list-inline mb-10">
+                                <li class="color-muted"><i class="ico fa fa-map-marker ml-5"></i>كاليفورنايا</li>
+                                <li class="color-muted"><i class="ico lnr lnr-users ml-5"></i>13 مباع</li>
+                            </ul>
+                            <h4 class="color-green mb-10 t-uppercase">15% خصم</h4>
+                            <h5 class="deal-title mb-10">
+                                <a href="#">عدسة تصوير لجميع الجوالات - مايكرو</a>
+                            </h5>
+                            <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock ml-10"></i>ينتهي في 05/02/2018</p>
+                            <div class="showcode" data-toggle-class="coupon-showen" data-toggle-event="click">
+                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_02">عرض الكوبون</button>
+                                <div class="coupon-hide">X455-17GT-OL58</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+        <div class="item">
+            <div class="coupon-single panel t-center">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center p-20">
+                            <img class="store-logo" src="assets/images/coupons/coupon_03.jpg" alt="">
+                        </div>
+                        <!-- end media -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-xs-12">
+                        <div class="panel-body">
+                            <ul class="deal-meta list-inline mb-10">
+                                <li class="color-muted"><i class="ico fa fa-tag ml-5"></i>كوبون</li>
+                                <li class="color-muted"><i class="ico lnr lnr-users ml-5"></i>425 مباع</li>
+                            </ul>
+                            <h4 class="color-green mb-10 t-uppercase">20% خصم</h4>
+                            <h5 class="deal-title mb-10">
+                                <a href="#">عروض الاجهزة المنزلية الصغيرة في ايدي هوم</a>
+                            </h5>
+                            <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock ml-10"></i>ينتهي في 15/01/2018</p>
+                            <div class="showcode" data-toggle-class="coupon-showen" data-toggle-event="click">
+                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_03">عرض الكوبون</button>
+                                <div class="coupon-hide">X455-17GT-OL58</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+        <div class="item">
+            <div class="coupon-single panel t-center">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center p-20">
+                            <img class="store-logo" src="assets/images/coupons/coupon_04.jpg" alt="">
+                        </div>
+                        <!-- end media -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-xs-12">
+                        <div class="panel-body">
+                            <ul class="deal-meta list-inline mb-10">
+                                <li class="color-green"><i class="ico lnr lnr-smile ml-5"></i>موثوق</li>
+                                <li class="color-muted"><i class="ico lnr lnr-users ml-5"></i>230 مباع</li>
+                            </ul>
+                            <h4 class="color-green mb-10 t-uppercase">30% خصم</h4>
+                            <h5 class="deal-title mb-10">
+                                <a href="#">اقوى عروض هوم برونز للاثاث المنزلي</a>
+                            </h5>
+                            <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock ml-10"></i>ينتهي في 02/03/2018</p>
+                            <div class="showcode" data-toggle-class="coupon-showen" data-toggle-event="click">
+                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_04">عرض الكوبون</button>
+                                <div class="coupon-hide">X455-17GT-OL58</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+        <div class="item">
+            <div class="coupon-single panel t-center">
+                <div class="ribbon-wrapper is-hidden-xs-down">
+                    <div class="ribbon">مميز</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center p-20">
+                            <img class="store-logo" src="assets/images/coupons/coupon_05.jpg" alt="">
+                        </div>
+                        <!-- end media -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-xs-12">
+                        <div class="panel-body">
+                            <ul class="deal-meta list-inline mb-10">
+                                <li class="color-muted"><i class="ico fa fa-tag ml-5"></i>كوبون</li>
+                                <li class="color-muted"><i class="ico lnr lnr-users ml-5"></i>86 مباع</li>
+                            </ul>
+                            <h4 class="color-green mb-10 t-uppercase">10% خصم</h4>
+                            <h5 class="deal-title mb-10">
+                                <a href="#">سامسونج جير اس3 فرونتير ساعة ذكية</a>
+                            </h5>
+                            <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock ml-10"></i>ينتهي في 20/02/2018</p>
+                            <div class="showcode" data-toggle-class="coupon-showen" data-toggle-event="click">
+                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_05">عرض الكوبون</button>
+                                <div class="coupon-hide">X455-17GT-OL58</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+        <div class="item">
+            <div class="coupon-single panel t-center">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center p-20">
+                            <img class="store-logo" src="assets/images/coupons/coupon_06.jpg" alt="">
+                        </div>
+                        <!-- end media -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-xs-12">
+                        <div class="panel-body">
+                            <ul class="deal-meta list-inline mb-10">
+                                <li class="color-green"><i class="ico lnr lnr-smile ml-5"></i>موثوق</li>
+                                <li class="color-muted"><i class="ico lnr lnr-users ml-5"></i>24 مباع</li>
+                            </ul>
+                            <h4 class="color-green mb-10 t-uppercase">25% خصم</h4>
+                            <h5 class="deal-title mb-10">
+                                <a href="#">سماعة بلوتوث فويس من انجو , ذهبي</a>
+                            </h5>
+                            <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock ml-10"></i>ينتهي في 14/01/2018</p>
+                            <div class="showcode" data-toggle-class="coupon-showen" data-toggle-event="click">
+                                <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_06">عرض الكوبون</button>
+                                <div class="coupon-hide">X455-17GT-OL58</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section stores-area stores-area-v1 ptb-30">
+    <header class="panel ptb-15 prl-20 pos-r mb-30">
+        <h3 class="section-title font-18">متاجر شعبية</h3>
+        <a href="stores_01.html" class="btn btn-o btn-xs pos-a left-10 pos-tb-center">عرض الكل</a>
+    </header>
+    <div class="popular-stores-slider  owl-carousel owl-theme" data-loop="true" data-autoplay="true" data-smart-speed="1000" data-autoplay-timeout="10000" data-margin="20" data-items="2" data-xxs-items="2" data-xs-items="2" data-sm-items="3" data-md-items="5" data-lg-items="6">
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_01.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">Amazon</h6>
+            </a>
+        </div>
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_02.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">Ashford</h6>
+            </a>
+        </div>
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_03.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">DELL</h6>
+            </a>
+        </div>
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_04.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">Card Cash</h6>
+            </a>
+        </div>
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_05.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">Finish Line</h6>
+            </a>
+        </div>
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_06.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">JC Penny</h6>
+            </a>
+        </div>
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_07.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">Callaway Golf</h6>
+            </a>
+        </div>
+        <div class="store-item t-center">
+            <a href="store_single_01.html" class="panel is-block">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="store-logo">
+                        <img src="assets/images/brands/brand_08.jpg" alt="">
+                    </div>
+                </div>
+                <h6 class="store-name ptb-10">Car Toys</h6>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+@section scripts
+{
+    <script>
+        var owl_carousel = function () {
+            $('.owl-carousel').each(function () {
+                var carousel = $(this),
+                    autoplay_hover_pause = carousel.data('autoplay-hover-pause'),
+                    loop = carousel.data('loop'),
+                    items_general = carousel.data('items'),
+                    margin = carousel.data('margin'),
+                    autoplay = carousel.data('autoplay'),
+                    autoplayTimeout = carousel.data('autoplay-timeout'),
+                    smartSpeed = carousel.data('smart-speed'),
+                    nav_general = carousel.data('nav'),
+                    navSpeed = carousel.data('nav-speed'),
+                    xxs_items = carousel.data('xxs-items'),
+                    xxs_nav = carousel.data('xxs-nav'),
+                    xs_items = carousel.data('xs-items'),
+                    xs_nav = carousel.data('xs-nav'),
+                    sm_items = carousel.data('sm-items'),
+                    sm_nav = carousel.data('sm-nav'),
+                    md_items = carousel.data('md-items'),
+                    md_nav = carousel.data('md-nav'),
+                    lg_items = carousel.data('lg-items'),
+                    lg_nav = carousel.data('lg-nav'),
+                    center = carousel.data('center'),
+                    dots_global = carousel.data('dots'),
+                    xxs_dots = carousel.data('xxs-dots'),
+                    xs_dots = carousel.data('xs-dots'),
+                    sm_dots = carousel.data('sm-dots'),
+                    md_dots = carousel.data('md-dots'),
+                    lg_dots = carousel.data('lg-dots');
+
+                carousel.owlCarousel({
+                    rtl: true,
+                    autoplayHoverPause: autoplay_hover_pause,
+                    loop: (loop ? loop : false),
+                    items: (items_general ? items_general : 1),
+                    lazyLoad: true,
+                    margin: (margin ? margin : 0),
+                    autoplay: (autoplay ? autoplay : false),
+                    autoplayTimeout: (autoplayTimeout ? autoplayTimeout : 1000),
+                    smartSpeed: (smartSpeed ? smartSpeed : 250),
+                    dots: (dots_global ? dots_global : false),
+                    nav: (nav_general ? nav_general : false),
+                    navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+                    navSpeed: (navSpeed ? navSpeed : false),
+                    center: (center ? center : false),
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: (xxs_items ? xxs_items : (items_general ? items_general : 1)),
+                            nav: (xxs_nav ? xxs_nav : (nav_general ? nav_general : false)),
+                            dots: (xxs_dots ? xxs_dots : (dots_global ? dots_global : false))
+                        },
+                        480: {
+                            items: (xs_items ? xs_items : (items_general ? items_general : 1)),
+                            nav: (xs_nav ? xs_nav : (nav_general ? nav_general : false)),
+                            dots: (xs_dots ? xs_dots : (dots_global ? dots_global : false))
+                        },
+                        768: {
+                            items: (sm_items ? sm_items : (items_general ? items_general : 1)),
+                            nav: (sm_nav ? sm_nav : (nav_general ? nav_general : false)),
+                            dots: (sm_dots ? sm_dots : (dots_global ? dots_global : false))
+                        },
+                        992: {
+                            items: (md_items ? md_items : (items_general ? items_general : 1)),
+                            nav: (md_nav ? md_nav : (nav_general ? nav_general : false)),
+                            dots: (md_dots ? md_dots : (dots_global ? dots_global : false))
+                        },
+                        1199: {
+                            items: (lg_items ? lg_items : (items_general ? items_general : 1)),
+                            nav: (lg_nav ? lg_nav : (nav_general ? nav_general : false)),
+                            dots: (lg_dots ? lg_dots : (dots_global ? dots_global : false))
+                        }
+                    }
+                });
+
+            });
+        };
+
+        $(document).ready(function () {
+           owl_carousel();
+            //coupon - item
+           //$('.owl-carousel').owlCarousel({
+           //    rtl:true,
+           //    loop:true,
+           //    margin:10,
+           //    nav:true,
+           //    responsive:{
+           //        0:{
+           //            items:1
+           //        },
+           //        600:{
+           //            items:3
+           //        },
+           //        1000:{
+           //            items:3
+           //        }
+           //    }
+           //})
+        });
+       
+    </script>
+}

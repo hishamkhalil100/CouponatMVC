@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Couponat.Models.Store>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPublic2.cshtml   ";
+}
+
+<div class="container">
+    <section class="stores-area stores-area-v1">
+        <h3 class="mb-40 mt-40 t-uppercase">عرض الصفقات من قبل المتاجر</h3>
+        <div class="row row-rl-15 row-tb-15 t-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <a href="@Url.Action("Details","Stores",new {Id = item.Id})" class="panel is-block">
+                        <div class="embed-responsive embed-responsive-4by3">
+                            <div class="store-logo">
+                                <img src="~/Images/@item.Logo" alt="">
+                            </div>
+                        </div>
+                        <h6 class="store-name ptb-10">@item.NameAr</h6>
+                    </a>
+                </div>
+            }
+
+        </div>
+        
+    </section>
+</div>

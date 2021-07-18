@@ -1,0 +1,80 @@
+﻿@model Couponat.Models.Offer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+
+<div class="row row-rl-10 row-tb-20">
+    <div class="page-content col-xs-12 col-sm-7 col-md-12">
+        <div class="row row-tb-20">
+            <div class="col-xs-12">
+                <div class="deal-deatails panel">
+                    <div class="deal-slider">
+                        <div id="product_slider" class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    @if (string.IsNullOrEmpty(@Model.Image))
+                                    {
+                                        <img alt="" src="~/Content/Public/Images/Asset.png">
+                                    }
+                                    else
+                                    {
+                                        <img alt="" src="~/Images/@Model.Image">
+                                    }
+                                </li>
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="deal-body p-20">
+                        <h3 class="mb-10">@Model.NameAr</h3>
+
+
+                        <p class="mb-20">@Model.OfferDetailsAr</p>
+                    </div>
+
+                    <div class="buy-now m-40">
+                        <a href="@Model.Website" target="_blank" data-offer-id="@Model.Id"  class="btn btn-block btn-lg offerClick">
+                            <i class="fa fa-shopping-cart font-16 ml-10"></i> الذهاب للمتجر
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".buy-now").on("click",
+                ".offerClick",
+                function () {
+                    button = $(this);
+                    var settings = {
+                        "url": "http://localhost:44337/api/offers/addofferwebsitehit",
+                        "method": "POST",
+                        "timeout": 0,
+                        "headers": {
+                            "bearer": "AIzaSyA41FT1XYEEj3qP5hpeGiZZQPISz2m_EHo",
+                            "Content-Type": "application/json"
+                        },
+                        "data": JSON.stringify({
+                            "offerId": button.attr("data-offer-id")
+                           
+                        })
+                    };
+                    $.ajax(settings).done(function (response) {
+                        console.log(response);
+                    });
+                });
+        })
+    </script>
+}

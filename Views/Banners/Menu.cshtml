@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Couponat.Models.Banner>
+
+<div class="header-deals-slider flexslider" id="header-deals-slider">
+    <ul class="slides">
+        @if (Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <li>
+                    <div class="deal-single panel item">
+
+                        <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/Images/@item.Image">
+                            <div class="label-discount top-10 left-10">-50%</div>
+
+                            <div class="deal-about p-20 pos-a bottom-0 right-0">
+
+                                <h3 class="deal-title mb-10 ">
+                                    <a href="@item.Url" class="color-light color-h-lighter"></a>
+                                </h3>
+                            </div>
+                        </figure>
+                    </div>
+                </li>
+            }
+        }
+        else
+        {
+            <li>
+                <div class="deal-single panel item">
+
+                    <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/Content/Public/Images/Asset.png">
+                        <div class="label-discount top-10 left-10">-50%</div>
+
+                        <div class="deal-about p-20 pos-a bottom-0 right-0">
+
+                            <h3 class="deal-title mb-10 ">
+                                <a href="#" class="color-light color-h-lighter"></a>
+                            </h3>
+                        </div>
+                    </figure>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+

@@ -1,0 +1,215 @@
+﻿@model Couponat.ViewModels.OfferFormViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>@ViewBag.ActionMessage</h3>
+<section id="content" class="table-layout animated fadeIn">
+    <div class="tray tray-center">
+        <div class="mw1000 center-block">
+            <div class="admin-form">
+                <div class="panel heading-border">
+                    <div class="panel-body bg-light">
+                        @using (Html.BeginForm("Create", "Offers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="section-divider mb40" id="spy1">
+                                <span>Coupon</span>
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Offer.Name, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Name" } })
+                                            @Html.ValidationMessageFor(model => model.Offer.Name, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Offer.NameAr, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Arabic Name" } })
+                                            @Html.ValidationMessageFor(model => model.Offer.NameAr, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Offer.CouponCode, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Coupon Code" } })
+                                            @Html.ValidationMessageFor(model => model.Offer.CouponCode, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.DropDownListFor(model => model.Offer.StoreId, new SelectList(Model.Stores, "Id", "Name"), "-- Select Coupon Store --", new { @class = "select2-single form-control" })
+                                            @Html.ValidationMessageFor(model => model.Offer.StoreId, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.DropDownListFor(model => model.Offer.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "-- Select Coupon Category --", new { @class = "select2-single form-control" })
+                                            @Html.ValidationMessageFor(model => model.Offer.CategoryId, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+
+                                        <label class="field prepend-icon append-button file">
+                                            <span class="button">Choose File</span>
+                                            <input type="file" class="gui-file" name="file1" id="file1" onchange="document.getElementById('uploader1').value = this.value;">
+                                            <input type="text" class="gui-input" id="uploader1" placeholder="Please Select A Logo">
+                                            <label class="field-icon">
+                                                <i class="fa fa-upload"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Offer.Website, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Website" } })
+                                            @Html.ValidationMessageFor(model => model.Offer.Website, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Offer.OfferDetails, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Coupon Details" } })
+                                            @Html.ValidationMessageFor(model => model.Offer.OfferDetails, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Offer.OfferDetailsAr, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Arabic Coupon Details" } })
+                                            @Html.ValidationMessageFor(model => model.Offer.OfferDetailsAr, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Offer.Tags, new { htmlAttributes = new { @class = "gui-input", PlaceHolder = "Tags" } })
+                                            @Html.ValidationMessageFor(model => model.Offer.Tags, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label for="datetimepicker1" class="field prepend-icon">
+                                            @Html.EditorFor(model => model.Offer.EndDate, new { htmlAttributes = new { id = "datetimepicker1", name = "datetimepicker1", @class = "gui-input", PlaceHolder = "End Date" } })
+                                            <label class="field-icon">
+                                                <i class="fa fa-calendar-o"></i>
+                                            </label>
+                                            @Html.ValidationMessageFor(model => model.Offer.EndDate, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.CheckBoxFor(model => model.Offer.IsSpecialOffer) Is a Special Offer?
+                                            @Html.ValidationMessageFor(model => model.Offer.IsSpecialOffer, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer text-right">
+                                <button type="submit" class="button btn-primary"> Save </button>
+                                <button type="reset" class="button btn-primary"> Cancel </button>
+                                @Html.ActionLink("Back to List", "Index", "Coupons",
+                                    null,
+                                    new Dictionary<string, object> { { "class", "button btn-primary" } })
+
+                            </div>
+
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section css
+{
+    <link href="~/Content/Admin/core.css" rel="stylesheet" />
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Admin/jquery-ui-datepicker.min.js")
+    @Scripts.Render("~/Scripts/Admin/select2.min.js")
+
+    <script>
+        $('#datetimepicker1').datetimepicker({
+            prevText: '<i class="fa fa-chevron-left"></i>',
+            nextText: '<i class="fa fa-chevron-right"></i>',
+            dateFormat: 'yy-mm-dd',
+            beforeShow: function (input, inst) {
+                var newclass = 'admin-form';
+                var themeClass = $(this).parents('.admin-form').attr('class');
+                var smartpikr = inst.dpDiv.parent();
+                if (!smartpikr.hasClass(themeClass)) {
+                    inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                }
+            }
+        });
+        $('.inline-dtp').datetimepicker({
+            prevText: '<i class="fa fa-chevron-left"></i>',
+            nextText: '<i class="fa fa-chevron-right"></i>',
+        });
+        $(".select2-single").select2();
+    </script>
+
+}

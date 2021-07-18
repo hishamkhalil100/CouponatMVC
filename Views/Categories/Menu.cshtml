@@ -1,0 +1,14 @@
+﻿@model System.Collections.Generic.IEnumerable<Couponat.Models.Category>
+
+
+
+
+<ul class="nav-coupon-category panel">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="@Url.Action("Details","Categories",new{Id= item.Id})"><i class="fa fa-cutlery"></i>@item.NameAr<span>40</span></a>
+            
+        </li>
+    }
+</ul>

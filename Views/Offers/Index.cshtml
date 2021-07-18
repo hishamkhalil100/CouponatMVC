@@ -1,0 +1,137 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Couponat.Models.Offer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+}
+
+<!-- Coupons Area -->
+<section class="section coupons-area coupons-area-grid">
+    <!-- Page Control -->
+    <header class="page-control panel ptb-15 prl-20 pos-r mb-30">
+        <!-- List Control View -->
+        <div class="row">
+            <div class="col-sm-12">
+                @using (Html.BeginForm("Index", "Offers", FormMethod.Get, new { @class = "search-form" }))
+                {
+
+                    <div class="input-group">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control input-lg search-input", placeholder = "ادخل كلمة للبحث...", required = "required" })
+
+
+                        <div class="input-group-btn">
+                            <div class="input-group">
+                                <select class="form-control input-lg search-select">
+                                    <option>احتر الفئة</option>
+                                    <option>صفقات</option>
+                                    <option>كوبونات</option>
+                                    <option>خصومات</option>
+                                </select>
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-lg btn-search btn-block">
+                                        <i class="fa fa-search font-16"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- End List Control View -->
+
+    </header>
+    <!-- End Page Control -->
+    <div id="divParent" class="row row-masnory row-tb-20">
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+
+                <div class="col-sm-6 col-lg-6">
+                    <div class="deal-single panel">
+                        <figure class="deal-thumbnail embed-responsive embed-responsive-square" data-bg-img="/Images/@item.Image">
+                            <div class="label-discount right-20 top-15">-50%</div>
+                            
+                            <div class="time-right bottom-15 left-20 font-md-14">
+                                <span>
+                                    <i class="ico fa fa-clock-o ml-10"></i>
+                                    <span class="t-uppercase" data-countdown="2022/09/01 01:30:00"></span>
+                                </span>
+                            </div>
+                            <div class="deal-store-logo">
+                                <img src="assets/images/brands/brand_01.jpg" alt="">
+                            </div>
+                        </figure>
+                        <div class="bg-white pt-20 pr-20 pl-15">
+                            <div class="pl-md-10">
+                                
+                                <h3 class="deal-title mb-10">
+                                    @Html.ActionLink(@item.NameAr,"Details",new {Id = item.Id})
+                                    
+                                </h3>
+                                
+                                <p class="text-muted mb-20">@item.OfferDetailsAr</p>
+                            </div>
+                            <div class="deal-price pos-r mb-15">
+                                <h3 class="price ptb-5 text-left"><span class="price-sale">$300.00</span>$150.00</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>نأسف لا توجد عروض</p>
+        }
+    </div>
+    <!-- Page Pagination -->
+    <div class="page-pagination text-center mt-30 p-10 panel">
+        @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }),
+            new PagedListRenderOptions
+                 {
+                UlElementClasses = new string[] { "page-pagination" },
+                ContainerDivClasses = new string[] { "pagination-containerss" }
+            })
+
+    </div>
+    <!-- End Page Pagination -->
+</section>
+<!-- End Coupons Area -->
+
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/Public/jquery.countdown.js"></script>
+    
+    <script>
+        var countdown = function(){
+            var countdown_select = $("[data-countdown]");
+            countdown_select.each(function(){
+                $(this).countdown($(this).data('countdown'))
+                    .on('update.countdown', function(e){
+                        var format = '%H : %M : %S';
+                        if (e.offset.totalDays > 0) {
+                            format = '%d يوم '+format;
+                        }
+                        if (e.offset.weeks > 0) {
+                            format = '%w اسبوع '+format;
+                        }
+                        $(this).html(e.strftime(format));
+                    });
+            }).on('finish.countdown', function(e){
+                $(this).html('العرض انتهي').addClass('disabled');
+            });
+        };
+
+        $( document ).ready(function() {
+            countdown();
+        });
+    </script>
+}
+

@@ -1,0 +1,127 @@
+﻿@model Couponat.Models.Banner
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<section id="content" class="table-layout animated fadeIn">
+    <div class="tray tray-center">
+        <div class="mw1000 center-block">
+            <div class="admin-form">
+                <div class="panel heading-border">
+                    <div class="panel-body bg-light">
+                        @Html.AntiForgeryToken()
+                        @using (Html.BeginForm("Edit", "Banners", FormMethod.Post, new {enctype = "multipart/form-data"}))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="section-divider mb40" id="spy1">
+                                <span>Coupon</span>
+                            </div>
+                            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            @Html.EditorFor(model => model.Url, new {htmlAttributes = new {@class = "gui-input", PlaceHolder = "Name"}})
+                                            @Html.ValidationMessageFor(model => model.Url, "", new {@class = "text-danger"})
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+
+                                        <label class="field prepend-icon append-button file">
+                                            <span class="button">Choose File</span>
+                                            <input type="file" class="gui-file" name="file1" id="file1" onchange="document.getElementById('uploader1').value = this.value;">
+                                            <input type="text" class="gui-input" id="uploader1" placeholder="Please Select A Logo">
+                                            <label class="field-icon">
+                                                <i class="fa fa-upload"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label for="datetimepicker1" class="field prepend-icon">
+                                            @Html.EditorFor(model => model.EndDate, new {htmlAttributes = new {id = "datetimepicker1", name = "datetimepicker1", @class = "gui-input", PlaceHolder = "End Date"}})
+                                            <label class="field-icon">
+                                                <i class="fa fa-calendar-o"></i>
+                                            </label>
+                                            @Html.ValidationMessageFor(model => model.EndDate, "", new {@class = "text-danger"})
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section">
+                                        <label class="field">
+                                            <label class="">
+                                                @Html.CheckBoxFor(c => c.IsVisible)
+                                                عرض في القائمة
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="panel-footer text-right">
+                                <button type="submit" class="button btn-primary"> Save </button>
+                                <button type="reset" class="button btn-primary"> Cancel </button>
+                                @Html.ActionLink("Back to List", "Index", "Banners", null, new Dictionary<string, object> {{"class", "button btn-primary"}})
+
+                            </div>
+
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section css
+{
+    <link href="~/Content/Admin/core.css" rel="stylesheet" />
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Admin/jquery-ui-datepicker.min.js")
+    @Scripts.Render("~/Scripts/Admin/select2.min.js")
+
+    <script>
+        $('#datetimepicker1').datetimepicker({
+            prevText: '<i class="fa fa-chevron-left"></i>',
+            nextText: '<i class="fa fa-chevron-right"></i>',
+            dateFormat: 'yy-mm-dd',
+            beforeShow: function (input, inst) {
+                var newclass = 'admin-form';
+                var themeClass = $(this).parents('.admin-form').attr('class');
+                var smartpikr = inst.dpDiv.parent();
+                if (!smartpikr.hasClass(themeClass)) {
+                    inst.dpDiv.wrap('<div class="' + themeClass + '"></div>');
+                }
+            }
+        });
+        $('.inline-dtp').datetimepicker({
+            prevText: '<i class="fa fa-chevron-left"></i>',
+            nextText: '<i class="fa fa-chevron-right"></i>',
+        });
+        $(".select2-single").select2();
+    </script>
+
+}

@@ -1,0 +1,455 @@
+﻿@using PagedList.Mvc
+@model Couponat.Models.Store
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPublic2.cshtml";
+}
+
+
+
+<!-- Coupons Area -->
+<div class="page-sidebar col-sm-4 col-md-3">
+    <aside class="store-header-area panel t-center">
+        <div class="row">
+            <div class="col-xs-12">
+                <figure class="pt-10 pr-10">
+                    <img src="assets/images/brands/store_logo.jpg" alt="">
+                </figure>
+            </div>
+            <div class="col-xs-12">
+                <div class="store-about ptb-30 prl-10">
+                    <h3 class="mb-10">@Model.NameAr</h3>
+                    <div class="rating mb-10">
+                        <span class="rating-stars rate-allow" data-rating="3">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o star-active"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </span>
+                        <span class="rating-reviews">
+                            ( <span class="rating-count">205</span> تقييم )
+                        </span>
+                    </div>
+                    <p class="mb-15">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.</p>
+                   
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="store-splitter-right">
+                    <header class="right-splitter-header prl-10 ptb-20 bg-lighter">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h2>@Model.Coupons.Count</h2>
+                                <p>كويوون</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <h2>@Model.Offers.Count</h2>
+                                <p>عرض</p>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+<div class="page-content col-sm-8 col-md-9">
+    <!-- Store Tabs Area -->
+    <div class="section store-tabs-area">
+        <div class="tabs tabs-v1">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs panel" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#deals" aria-controls="deals" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-comment ml-10"></i>صفقات</a>
+                </li>
+                <li role="presentation">
+                    <a href="#coupons" aria-controls="coupons" role="tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-star ml-10"></i>كوبونات</a>
+                </li>
+              
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane ptb-20 active" id="deals">
+                    <section class="section deals-area">
+                        <div class="row row-masnory row-tb-20">
+                            @foreach (var item in Model.Offers)
+                            {
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="deal-single panel">
+                                        <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/Images/@item.Image">
+                                            <div class="label-discount right-20 top-15">-50%</div>
+                                            
+                                            <div class="time-right bottom-15 left-20 font-md-14">
+                                                <span>
+                                                    <i class="ico fa fa-clock-o ml-10"></i>
+                                                    <span class="t-uppercase" data-countdown="@item.EndDate"></span>
+                                                </span>
+                                            </div>
+                                            <div class="deal-store-logo">
+                                                <img src="~/Images/@item.Image" alt="">
+                                            </div>
+                                        </figure>
+                                        <div class="bg-white pt-20 pr-20 pl-15">
+                                            <div class="pl-md-10">
+                                                
+                                                <h3 class="deal-title mb-10">
+                                                    <a href="#">@item.NameAr</a>
+                                                </h3>
+                                                <ul class="deal-meta list-inline mb-10 color-mid">
+                                                    <li><i class="ico fa fa-shopping-basket ml-10"></i>120 شراء</li>
+                                                </ul>
+                                                <p class="text-muted mb-20">@item.OfferDetailsAr</p>
+                                            </div>
+                                            <div class="deal-price pos-r mb-15">
+                                                <h3 class="price ptb-5 text-left"><span class="price-sale">$300.00</span>$150.00</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </section>
+                </div>
+                <div role="tabpanel" class="tab-pane ptb-20" id="coupons">
+                    <section class="section coupons-area coupons-area-grid">
+                        <div class="row row-masnory row-tb-20">
+                            @foreach (var item in Model.Coupons)
+                            {
+                            <div class="col-sm-6">
+                                <div class="coupon-single panel t-center">
+                                    <div class="ribbon-wrapper is-hidden-xs-down">
+                                        <div class="ribbon">مميز</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="text-center p-20">
+                                                <img class="store-logo" src="/Images/@item.Logo" alt="">
+                                            </div>
+                                            <!--end media -->
+                                        </div>
+                                        <!-- end col -->
+                                        <div class="col-xs-12">
+                                            <div class="panel-body">
+                                                <ul class="deal-meta list-inline mb-10">
+                                                    <li class="color-green"><i class="ico lnr lnr-smile ml-5"></i>موثوق</li>
+                                                    <li class="color-muted"><i class="ico lnr lnr-users ml-5"></i>@item.CouponHits.Count()</li>
+                                                </ul>
+                                                <h4 class="color-green mb-10 t-uppercase">@item.OfferAr</h4>
+                                                <h5 class="deal-title mb-10">
+                                                    <a href="#">@item.NameAr</a>
+                                                </h5>
+                                                <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock ml-10"></i>ينتهي في @item.EndDate</p>
+                                                <div class="showcode">
+                                                    <button class="show-code btn btn-sm btn-block" data-toggle="modal" data-target="#@item.Id">عرض الكوبون</button>
+                                                    <div class="coupon-hide">@item.CouponCode</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end col -->
+                                    </div>
+                                    <!-- end row -->
+                                </div>
+                                <div class="modal fade get-coupon-area" tabindex="-1" role="dialog" id="@item.Id">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content panel">
+                                            <div class="modal-body">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <div class="row row-v-10">
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <img src="/Images/@item.Logo" alt="">
+                                                        <h3 class="mb-20">@item.OfferAr</h3>
+                                                        <p class="color-mid">@item.CouponDetailsAr</p>
+                                                    </div>
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <a href="@item.Website" class="btn btn-link">Visit Our Stores</a>
+                                                    </div>
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
+
+                                                        <button class="coupon-code" data-coupon-id="@item.Id">@item.CouponCode</button>
+                                                    </div>
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <div class="like-report mb-10">
+                                                            <span>Share this coupon :</span>
+                                                            <ul class="list-inline social-icons social-icons--colored mt-10">
+                                                                <li class="social-icons__item">
+                                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                </li>
+                                                                <li class="social-icons__item">
+                                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                </li>
+                                                                <li class="social-icons__item">
+                                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                                </li>
+                                                                <li class="social-icons__item">
+                                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer footer-info t-center ptb-40 prl-30">
+                                                <h4 class="mb-15">Subscribe to Mail</h4>
+                                                <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
+                                                <form method="post" action="#">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control bg-white" placeholder="Your Email Address">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn" type="button">حساب جديد</button>
+                                                        </span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                            
+                        </div>
+                        <!-- Page Pagination -->
+                        <div class="page-pagination text-center mt-30 p-10 panel">
+                            <nav>
+                                <!-- Page Pagination -->
+                                <ul class="page-pagination">
+                                    <li><a class="page-numbers previous" href="#">السابق</a></li>
+                                    <li><a href="#" class="page-numbers">1</a></li>
+                                    <li><span class="page-numbers current">2</span></li>
+                                    <li><a href="#" class="page-numbers">3</a></li>
+                                    <li><a href="#" class="page-numbers">4</a></li>
+                                    <li><span class="page-numbers dots">...</span></li>
+                                    <li><a href="#" class="page-numbers">20</a></li>
+                                    <li>
+                                        <a href="#" class="page-numbers next">التالي</a>
+                                    </li>
+                                </ul>
+                                <!-- End Page Pagination -->
+                            </nav>
+                        </div>
+                        <!-- End Page Pagination -->
+                    </section>
+                </div>
+                <div role="tabpanel" class="tab-pane ptb-20" id="reviews">
+                    <div class="posted-review panel p-30">
+                        <h3 class="h-title">16 تقييم</h3>
+                        <div class="review-single pt-30">
+                            <div class="media">
+                                <div class="media-right">
+                                    <img class="media-object ml-10 radius-4" src="assets/images/avatars/avatar_01.jpg" width="90" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="review-wrapper clearfix">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <span class="review-holder-name h5">احمد ابو زيد</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating">
+                                                    <span class="rating-stars" data-rating="5">
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <p class="review-date mb-5">9 سبتمبر، 2016</p>
+                                        <p class="copy">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-single pt-30">
+                            <div class="media">
+                                <div class="media-right">
+                                    <img class="media-object ml-10 radius-4" src="assets/images/avatars/avatar_02.jpg" width="90" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="review-wrapper clearfix">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <span class="review-holder-name h5">احمد ابو زيد</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating">
+                                                    <span class="rating-stars" data-rating="2">
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <p class="review-date mb-5">9 سبتمبر، 2016</p>
+                                        <p class="copy">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-single pt-30">
+                            <div class="media">
+                                <div class="media-right">
+                                    <img class="media-object ml-10 radius-4" src="assets/images/avatars/avatar_03.jpg" width="90" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="review-wrapper clearfix">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <span class="review-holder-name h5">احمد ابو زيد</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating">
+                                                    <span class="rating-stars" data-rating="3">
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <p class="review-date mb-5">9 سبتمبر، 2016</p>
+                                        <p class="copy">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-single pt-30">
+                            <div class="media">
+                                <div class="media-right">
+                                    <img class="media-object ml-10 radius-4" src="assets/images/avatars/avatar_04.jpg" width="90" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="review-wrapper clearfix">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <span class="review-holder-name h5">احمد ابو زيد</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating">
+                                                    <span class="rating-stars" data-rating="4">
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <p class="review-date mb-5">9 سبتمبر، 2016</p>
+                                        <p class="copy">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-single pt-30">
+                            <div class="media">
+                                <div class="media-right">
+                                    <img class="media-object ml-10 radius-4" src="assets/images/avatars/avatar_05.jpg" width="90" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="review-wrapper clearfix">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <span class="review-holder-name h5">احمد ابو زيد</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating">
+                                                    <span class="rating-stars" data-rating="5">
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <p class="review-date mb-5">9 سبتمبر، 2016</p>
+                                        <p class="copy">كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Store Tabs Area -->
+</div>
+<!-- End Coupons Area -->
+
+
+@section scripts
+{
+    <script src="~/Scripts/Public/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#divParent").on("click",
+                ".coupon-code",
+                function() {
+                    button = $(this);
+                    var settings = {
+                        "url": "http://localhost:44337/api/CouponHits",
+                        "method": "POST",
+                        "timeout": 0,
+                        "headers": {
+                            "bearer": "AIzaSyA41FT1XYEEj3qP5hpeGiZZQPISz2m_EHo",
+                            "Content-Type": "application/json"
+                        },
+                        "data": JSON.stringify({
+                            "couponId": button.attr("data-coupon-id"),
+                            "deviceId": "968A173C-A565-4FC2-A2B4-9AF666985387",
+                            "hitType": "1"
+                        })
+                    };
+                    $.ajax(settings).done(function(response) {
+                        console.log(response);
+                    });
+                });
+
+            background_image();
+            countdown();
+        });
+
+        var countdown = function(){
+            var countdown_select = $("[data-countdown]");
+            countdown_select.each(function(){
+                $(this).countdown($(this).data('countdown'))
+                    .on('update.countdown', function(e){
+                        var format = '%H : %M : %S';
+                        if (e.offset.totalDays > 0) {
+                            format = '%d يوم '+format;
+                        }
+                        if (e.offset.weeks > 0) {
+                            format = '%w اسبوع '+format;
+                        }
+                        $(this).html(e.strftime(format));
+                    });
+            }).on('finish.countdown', function(e){
+                $(this).html('العرض انتهي').addClass('disabled');
+            });
+        };
+        var background_image = function() {
+            $("[data-bg-img]").each(function() {
+                var attr = $(this).attr('data-bg-img');
+                if (typeof attr !== typeof undefined && attr !== false && attr !== "") {
+                    $(this).css('background-image', 'url('+attr+')');
+                }
+            });  
+        };
+    </script>
+}

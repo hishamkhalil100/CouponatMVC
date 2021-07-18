@@ -1,0 +1,60 @@
+﻿@model System.Collections.Generic.IEnumerable<Couponat.Models.Store>
+
+
+<div class="col-xs-12">
+    <!-- Trending Stores -->
+    <div class="widget instagram-widget panel pt-20 prl-20">
+        <h3 class="widget-title h-title">المتاجر الشائعة</h3>
+        <div class="widget-body ptb-30">
+            <div class="row row-tb-5 row-rl-5">
+                @foreach (var item in Model)
+                {
+
+                    <div class="instagram-widget__item col-xs-6">
+                        <a href="@Url.Action("Details","Stores",new{Id= item.Id})" 
+                           class="thumbnail">
+
+
+
+                            <img src="~/Images/@item.Logo" alt="">
+
+
+
+                            
+                        </a>
+                    </div>
+
+
+
+
+
+
+
+                    @*<div class="trend-store-item media">
+                            <div class="post-thumb media-right">
+                                <a href="#">
+                                    <img class="media-object pl-10" width="90" src="~/Images/@item.Logo" alt="">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h5 class="mb-5">
+                                    <a href="#">@item.NameAr</a>
+                                    <span class="rating">
+                                        <span class="rating-stars" data-rating="4">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </span>
+                                    </span>
+                                </h5>
+                                <p class="color-mid">خلافاَ للإعتقاد السائد فإن لوريم إيبسوم ليس نصاَ عشوائياً.</p>
+                            </div>
+                        </div>*@
+                }
+            </div>
+        </div>
+    </div>
+    <!-- End Trending Stores -->
+</div>
